@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+</head>
+<body>
+	<ui:composition template="/layouts/main-layout.xhtml">
+		<ui:define name="styles">
+			<style>
+			body {
+				background-color: lightgray;
+			}
+		</style>
+		</ui:define>
+
+		<ui:define name="view">
+			<div>
+				<ul>
+					<ui:repeat var="contact" value="#{home.contacts}">
+						<li><h:outputText value="#{contact.name}"/></li>
+					</ui:repeat>
+				</ul>
+			</div>
+			<h:form>
+				<h:inputText value="#{home.contactModel.name}" />
+				<h:inputText value="#{home.contactModel.email}" />
+				<h:commandButton action="#{home.saveContactData}" value="Enviar" />
+			</h:form>
+		</ui:define>
+
+		<ui:define name="scripts">
+			<script type="text/javascript">
+			</script>
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>
